@@ -1,0 +1,10 @@
+#!/bin/bash
+
+kill $(cat /var/run/ffmpeg.pid)
+
+while kill -0 $(cat /var/run/ffmpeg.pid)
+do
+  sleep 1
+done
+
+MP4Box -isma -inter 500 /videos/video.mp4

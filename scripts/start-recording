@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+ffmpeg -video_size 1280x1024 -framerate 15 -f x11grab -i :99.0 /videos/video.mp4 < /dev/null > /videos/ffmpeg.log 2>&1 &
+
+FFMPEG_PID=$!
+
+echo $FFMPEG_PID > /var/run/ffmpeg.pid
